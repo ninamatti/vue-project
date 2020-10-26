@@ -3,7 +3,8 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <h1>{{ title }}</h1>
     
-    <navbar  v-on:change-view="changeView"/>
+    <navbar  v-on:change-view="changeView"
+             v-on:on-upload="updatePhotosAfterUpload"/>
     <allphotos v-if="currentView === 'AllPhotos'"/>
     <singlephoto v-else />
   </div>
@@ -45,7 +46,16 @@ export default {
   methods: {
     changeView: function(newValue) {
       this.currentView = newValue;
-    }
+    },
+    updatePhotosAfterUpload: function() {
+      listObjects()
+    .then((data) => {
+     return data.map((photo)=> photo.Key);
+    }).then((keysArr) => {
+      console.log("array after uploading   ",keysArr);
+      this.photos = keysArr;
+    });
+    },
   }
 };
 </script>
