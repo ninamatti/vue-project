@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <h1>{{ title }}</h1>
     
-    <navbar />
+    <navbar  v-on:change-view="changeView"/>
     <allphotos v-if="currentView === 'AllPhotos'"/>
     <singlephoto v-else />
   </div>
@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar";
 import SinglePhoto from "./components/SinglePhoto";
 import { listObjects } from "../utils/index.js";
 
+
 export default {
   name: "App",
   components: {
@@ -24,7 +25,7 @@ export default {
   },
   data: () => ({
     title: "Photo Upload App",
-    currentView: 'AllPhotos',
+    currentView: 'SinglePhoto',
     photos: [],
     selectedPhoto: "image",
   }),
@@ -40,6 +41,11 @@ export default {
       this.photos = keysArr;
     });
     /////
+  },
+  methods: {
+    changeView: function(newValue) {
+      this.currentView = newValue;
+    }
   }
 };
 </script>

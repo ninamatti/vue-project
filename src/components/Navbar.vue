@@ -1,11 +1,12 @@
 <template>
-<h1>I am a navbar! HI</h1>
- 
+<div>
+  <h1 v-on:click="$emit('change-view', 'AllPhotos')" >I am a navbar emitter! HI</h1>
+</div>
 </template>
 
 <script>
 export default {
-  name: "Navbar"
+  name: "Navbar",
 };
 </script>
 
