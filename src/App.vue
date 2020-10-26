@@ -16,7 +16,11 @@ export default {
     navbar: Navbar
   },
   data: () => ({
-    title: "Photo Upload App"
+    title: "Photo Upload App",
+    currentView: "AllPhotos",
+    photos: [],
+    selectedPhoto: "image",
+
   })
 };
 </script>
