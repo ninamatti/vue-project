@@ -7,7 +7,6 @@
 
 <script>
 import Upload from "./Upload.vue"
-
 export default {
   name: "Navbar",
   components: {
