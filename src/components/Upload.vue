@@ -1,5 +1,5 @@
 <template>
-  <div />
+  <h3>Upload to space</h3>
 </template>
 
 <script>
