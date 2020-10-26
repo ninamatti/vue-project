@@ -1,5 +1,6 @@
 <template>
-  <div />
+<h1>I am a navbar! HI</h1>
+ 
 </template>
 
 <script>
