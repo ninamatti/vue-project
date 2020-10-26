@@ -13,6 +13,7 @@
 import AllPhotos from './components/AllPhotos.vue';
 import Navbar from "./components/Navbar";
 import SinglePhoto from "./components/SinglePhoto";
+import { listObjects } from "../utils/index.js";
 
 export default {
   name: "App",
@@ -26,8 +27,20 @@ export default {
     currentView: 'AllPhotos',
     photos: [],
     selectedPhoto: "image",
-
-  })
+  }),
+  created() {
+    console.log('At this point, this.property is now reactive and propertyComputed will update.')
+    this.property = 'Example property updated.'
+    //// sets this.photos to array of keys
+    listObjects()
+    .then((data) => {
+     return data.map((photo)=> photo.Key);
+    }).then((keysArr) => {
+      console.log(keysArr);
+      this.photos = keysArr;
+    });
+    /////
+  }
 };
 </script>
 
