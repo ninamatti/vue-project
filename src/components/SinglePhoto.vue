@@ -1,5 +1,5 @@
 <template>
-  <div />
+ <h3>SINGLE PHOTO</h3>
 </template>
 
 <script>
