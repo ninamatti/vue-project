@@ -5,7 +5,7 @@
     
     <navbar  v-on:change-view="changeView"
              v-on:on-upload="updatePhotosAfterUpload"/>
-    <h3 v-if="loading === true" class="loader"> 🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️</h3>
+    <h2 v-if="loading === true" class="loader"> 🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️ LOADING 🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️🚴🏽‍♀️</h2>
     <allphotos v-if="currentView === 'AllPhotos'" 
                v-bind:photos="photos"
                v-on:file-selected="setSinglePhoto"/>
@@ -118,7 +118,23 @@ h1 {
   vertical-align: middle; 
 }
 
-.hidden {
-  display: none;
+@keyframes myanimation
+{
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+
+.loader {
+  color:  #41b883;
+  animation-name: myanimation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 </style>
