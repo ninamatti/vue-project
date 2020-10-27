@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <h1>{{ title }}</h1>
+    
+    <h1>{{ title }}<img class="logo" alt="Vue logo" src="./assets/logo.png" /></h1>
     
     <navbar  v-on:change-view="changeView"
              v-on:on-upload="updatePhotosAfterUpload"/>
@@ -28,7 +28,7 @@ export default {
   },
   data: () => ({
     title: "Photo Upload App",
-    currentView: 'SinglePhoto',
+    currentView: "AllPhotos",
     photos: [],
     selectedPhoto: "image",
   }),
@@ -99,7 +99,28 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 #app {
-  text-align: center;
+  font-family: 'Source Sans Pro';
+}
+
+h1 {
+  vertical-align:middle;
+}
+
+.logo {
+  width: 35px;
+  height: auto;
+  margin-left: 10px;
+  vertical-align: middle;
+  
 }
 </style>

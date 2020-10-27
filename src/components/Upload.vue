@@ -1,8 +1,12 @@
 <template>
 <div >
-  <h3>Upload to space</h3>
-  <input v-on:change="fileUpdater" type="file" /> 
-  <button v-on:click="saveFiletoAWS">Upload</button>
+  <div>
+    <input class="button" v-on:change="fileUpdater" type="file" /> 
+  <div>    
+  </div>
+    <button class="button" v-on:click="saveFiletoAWS">Upload</button> 
+  </div>
+  
 </div>
 </template>
 
@@ -32,4 +36,26 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+.button {
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 900; 
+  color: #fff;
+  background-color:  #41b883;
+  border: 2px solid  #41b883;
+  cursor: pointer;
+  width: max-content;
+  transition: 0.25s ease;
+  margin: 5px;
+}
+
+button:hover {
+    border-color: #41b883;
+    background-color:  #35495e;
+}
+
+
+
+</style>

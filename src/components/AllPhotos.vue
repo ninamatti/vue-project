@@ -2,7 +2,7 @@
   <div>
     <h3>ALL PHOTOS</h3>
     <template v-for="photo in photos">
-      <img v-bind:key="photo" :src="photo" v-on:click="selectPhoto(photo)">
+      <img class="photo" v-bind:key="photo" :src="photo" v-on:click="selectPhoto(photo)">
 
     </template>
   </div>
@@ -24,4 +24,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.photo {
+  width: 300px;
+  height: 300px;
+}
+
+</style>
