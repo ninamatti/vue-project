@@ -6,7 +6,8 @@
     <navbar  v-on:change-view="changeView"
              v-on:on-upload="updatePhotosAfterUpload"/>
     <allphotos v-if="currentView === 'AllPhotos'" 
-    v-bind:photos="photos"/>
+               v-bind:photos="photos"
+               v-on:file-selected="setSinglePhoto"/>
     <singlephoto v-else />
   </div>
 </template>
@@ -61,6 +62,13 @@ export default {
   methods: {
     changeView: function(newValue) {
       this.currentView = newValue;
+    },
+    setSinglePhoto: function(e) {
+      console.log("I am a photo in APPPPPPP:   ", e,  "end of EE");
+      
+      // set this.selectedPhoto to src of seleted Photo in AllPhotos✅
+      this.selectedPhoto = e;
+      // how to emit src to the parent??!?✅
     },
     updatePhotosAfterUpload: function() {
       listObjects()

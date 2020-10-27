@@ -2,7 +2,7 @@
   <div>
     <h3>ALL PHOTOS</h3>
     <template v-for="photo in photos">
-      <img v-bind:key="photo" :src="photo">
+      <img v-bind:key="photo" :src="photo" v-on:click="selectPhoto(photo)">
 
     </template>
   </div>
@@ -15,6 +15,12 @@
 export default {
   name: "AllPhotos",
   props: ['photos'],
+  methods: {
+    selectPhoto: function(photo) {
+      console.log(photo);
+      this.$emit('file-selected', photo);
+    }
+  }
 };
 </script>
 
