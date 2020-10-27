@@ -6,17 +6,11 @@
   </div>
     <button class="button" v-on:click="saveFiletoAWS">Upload</button> 
   </div>
-  
 </div>
 </template>
 
 <script>
 import { saveObject, listObjects } from "../../utils/index.js";
-// get file input✅
-
-// save file to s3 bucket ✅
-
-// update photos array because we added our own photo
 export default {
   name: "Upload",
   data: () => ({
@@ -37,7 +31,6 @@ export default {
 </script>
 
 <style>
-
 .button {
   padding: 15px 30px;
   font-size: 20px;
@@ -53,9 +46,6 @@ export default {
 
 button:hover {
     border-color: #41b883;
-    background-color:  #35495e;
+    background-color: #35495e;
 }
-
-
-
 </style>

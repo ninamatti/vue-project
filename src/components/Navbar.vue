@@ -25,9 +25,8 @@ export default {
   width: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: column;}
-
-
+  flex-direction: column;
+  }
 
 .button {
   padding: 15px 30px;
