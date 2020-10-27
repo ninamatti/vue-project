@@ -8,7 +8,7 @@
     <allphotos v-if="currentView === 'AllPhotos'" 
                v-bind:photos="photos"
                v-on:file-selected="setSinglePhoto"/>
-    <singlephoto v-else />
+    <singlephoto v-else v-bind:selectedPhoto="selectedPhoto"/>
   </div>
 </template>
 
@@ -68,6 +68,7 @@ export default {
       
       // set this.selectedPhoto to src of seleted Photo in AllPhotos✅
       this.selectedPhoto = e;
+      this.currentView = "SinglePhoto";
       // how to emit src to the parent??!?✅
     },
     updatePhotosAfterUpload: function() {
