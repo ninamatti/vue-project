@@ -28,6 +28,7 @@ export default {
 .photo {
   width: 300px;
   height: 300px;
+  border: 4px solid #35495e;
 }
 
 </style>
