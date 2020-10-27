@@ -5,7 +5,8 @@
     
     <navbar  v-on:change-view="changeView"
              v-on:on-upload="updatePhotosAfterUpload"/>
-    <allphotos v-if="currentView === 'AllPhotos'"/>
+    <allphotos v-if="currentView === 'AllPhotos'" 
+    v-bind:photos="photos"/>
     <singlephoto v-else />
   </div>
 </template>
@@ -14,7 +15,7 @@
 import AllPhotos from './components/AllPhotos.vue';
 import Navbar from "./components/Navbar";
 import SinglePhoto from "./components/SinglePhoto";
-import { listObjects } from "../utils/index.js";
+import { getSingleObject, listObjects } from "../utils/index.js";
 
 
 export default {
@@ -36,12 +37,26 @@ export default {
     //// sets this.photos to array of keys
     listObjects()
     .then((data) => {
-     return data.map((photo)=> photo.Key);
-    }).then((keysArr) => {
+     let results = [];
+     for(let i = 0; i < 10; i ++) {
+       results.push(data[i].Key)
+     }
+     return results;
+    })
+    .then((keysArr) => {
       console.log(keysArr);
-      this.photos = keysArr;
+      return keysArr.map((key) => {
+        return getSingleObject(key);
+      });
+    })
+    .then((photos)=>{
+      Promise.all(photos)
+      .then((b64arr)=>{
+        this.photos = b64arr.map((b64str) => {
+          return  "data:image;base64," + b64str;
+        })
+        })
     });
-    /////
   },
   methods: {
     changeView: function(newValue) {
@@ -49,11 +64,25 @@ export default {
     },
     updatePhotosAfterUpload: function() {
       listObjects()
-    .then((data) => {
-     return data.map((photo)=> photo.Key);
-    }).then((keysArr) => {
-      console.log("array after uploading   ",keysArr);
-      this.photos = keysArr;
+      .then((data) => {
+        let results = [];
+        for(let i = 0; i < 10; i ++) {
+          results.push(data[i].Key)
+        }
+        return results;
+      })
+      .then((keysArr) => {
+      
+      return keysArr.map((key)=> {
+        return getSingleObject(key);
+      })
+      .then((photos) => {
+        Promise.all(photos).then((b64arr)=>{
+        this.photos = b64arr.map((b64str) => {
+          return  "data:image;base64," + b64str;
+        })
+        })
+      });
     });
     },
   }
