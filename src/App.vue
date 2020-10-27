@@ -66,7 +66,8 @@ export default {
       this.selectedPhoto = e;
       this.currentView = "SinglePhoto";
     },
-    updatePhotosAfterUpload: function() {
+    updatePhotosAfterUpload: function() 
+    {
       listObjects()
       .then((data) => {
         let results = [];
@@ -76,17 +77,20 @@ export default {
         return results;
       })
       .then((keysArr) => {
-      return keysArr.map((key)=> {
-        return getSingleObject(key);
-      })
+        console.log("KEYS ARRR UPLOAD", keysArr);
+        return keysArr.map((key)=> {
+          return getSingleObject(key);
+      })})
       .then((photos) => {
-        Promise.all(photos).then((b64arr)=>{
-        this.photos = b64arr.map((b64str) => {
+        Promise.all(photos)
+
+        .then((b64arr) =>{
+          this.photos = b64arr.map((b64str) => {
           return  "data:image;base64," + b64str;
         })
-        })
+      })
       });
-    });
+
     },
   }
 };

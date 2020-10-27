@@ -25,5 +25,6 @@ export default {
   width: 300px;
   height: 300px;
   border: 4px solid #35495e;
+  margin: 5px;
 }
 </style>
