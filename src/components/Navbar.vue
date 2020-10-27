@@ -1,18 +1,18 @@
 <template>
-<div class="navbar">
-  <h1 class="button"
-      v-on:click="$emit('change-view', 'AllPhotos')" >
-     HOME</h1>
-  <upload v-on:file-uploaded="$emit('on-upload')"  />
-</div>
+  <div class="navbar">
+    <h1 class="button" v-on:click="$emit('change-view', 'AllPhotos')">
+      HOME
+    </h1>
+    <upload v-on:file-uploaded="$emit('on-upload')" />
+  </div>
 </template>
 
 <script>
-import Upload from "./Upload.vue"
+import Upload from "./Upload.vue";
 export default {
   name: "Navbar",
   components: {
-    upload: Upload,
+    upload: Upload
   }
 };
 </script>
@@ -26,15 +26,15 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  }
+}
 
 .button {
   padding: 15px 30px;
   font-size: 20px;
-  font-weight: 900; 
+  font-weight: 900;
   color: #fff;
-  background-color:  #41b883;
-  border: 2px solid  #41b883;
+  background-color: #41b883;
+  border: 2px solid #41b883;
   cursor: pointer;
   width: max-content;
   transition: 0.25s ease;
@@ -42,8 +42,7 @@ export default {
 }
 
 button:hover {
-    border-color: #41b883;
-    background-color:  #35495e;
+  border-color: #41b883;
+  background-color: #35495e;
 }
-
 </style>

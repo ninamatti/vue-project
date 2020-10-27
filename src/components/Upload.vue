@@ -1,29 +1,27 @@
 <template>
-<div >
   <div>
-    <input class="button" v-on:change="fileUpdater" type="file" /> 
-  <div>    
+    <div>
+      <input class="button" v-on:change="fileUpdater" type="file" />
+      <div></div>
+      <button class="button" v-on:click="saveFiletoAWS">Upload</button>
+    </div>
   </div>
-    <button class="button" v-on:click="saveFiletoAWS">Upload</button> 
-  </div>
-</div>
 </template>
 
 <script>
-import { saveObject, listObjects } from "../../utils/index.js";
+import { saveObject } from "../../utils/index.js";
 export default {
   name: "Upload",
   data: () => ({
-    file: "",
+    file: ""
   }),
   methods: {
     saveFiletoAWS: function() {
-      saveObject(this.file)
-      .then(()=>{
-       this.$emit('file-uploaded');
-    });
+      saveObject(this.file).then(() => {
+        this.$emit("file-uploaded");
+      });
     },
-    fileUpdater: function(e){
+    fileUpdater: function(e) {
       this.file = e.target.files[0];
     }
   }
@@ -34,10 +32,10 @@ export default {
 .button {
   padding: 15px 30px;
   font-size: 20px;
-  font-weight: 900; 
+  font-weight: 900;
   color: #fff;
-  background-color:  #41b883;
-  border: 2px solid  #41b883;
+  background-color: #41b883;
+  border: 2px solid #41b883;
   cursor: pointer;
   width: max-content;
   transition: 0.25s ease;
@@ -45,7 +43,7 @@ export default {
 }
 
 button:hover {
-    border-color: #41b883;
-    background-color: #35495e;
+  border-color: #41b883;
+  background-color: #35495e;
 }
 </style>

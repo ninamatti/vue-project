@@ -2,19 +2,23 @@
   <div>
     <h3>ALL PHOTOS</h3>
     <template v-for="photo in photos">
-      <img class="photo" v-bind:key="photo" :src="photo" v-on:click="selectPhoto(photo)">
+      <img
+        class="photo"
+        v-bind:key="photo"
+        :src="photo"
+        v-on:click="selectPhoto(photo)"
+      />
     </template>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "AllPhotos",
-  props: ['photos'],
+  props: ["photos"],
   methods: {
     selectPhoto: function(photo) {
-      this.$emit('file-selected', photo);
+      this.$emit("file-selected", photo);
     }
   }
 };

@@ -1,11 +1,11 @@
 <template>
- <img v-bind:src="selectedPhoto"/>
+  <img v-bind:src="selectedPhoto" />
 </template>
 
 <script>
 export default {
-  name: "SinglePhoto", 
-  props: ['selectedPhoto'],
+  name: "SinglePhoto",
+  props: ["selectedPhoto"]
 };
 </script>
 
